@@ -26,7 +26,7 @@ public class AccountService {
 
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
     public BigDecimal getBalance(Long id) {
-        return repository.getAccount(id).getBalance();
+        return repository.findOne(id).getBalance();
     }
 
     public BigDecimal withdraw(Long id, BigDecimal withdrawings) {
@@ -34,10 +34,10 @@ public class AccountService {
     }
 
     public BigDecimal deposit(Long id, BigDecimal savings) {
-        Account account = repository.getAccount(id);
+        Account account = repository.findOne(id);
         BigDecimal balance = account.getBalance();
         account.setBalance(balance.add(savings));
-        repository.updateAccount(account);
+        repository.save(account);
         return balance;
     }
 

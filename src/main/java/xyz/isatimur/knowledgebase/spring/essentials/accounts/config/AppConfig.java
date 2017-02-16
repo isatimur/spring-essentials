@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -25,8 +26,9 @@ import java.util.Properties;
  * Created by isati on 15.02.2017.
  */
 @Configuration
-@ComponentScan(basePackages = "xyz.isatimur.knowledgebase.spring.essentials")
+@ComponentScan(basePackages = "xyz.isatimur.knowledgebase.spring.essentials.accounts")
 @EnableTransactionManagement
+@EnableJpaRepositories(basePackages = "xyz.isatimur.knowledgebase.spring.essentials.accounts.repositories")
 public class AppConfig {
 
     @Autowired
