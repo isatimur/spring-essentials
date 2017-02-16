@@ -3,10 +3,9 @@ package xyz.isatimur.knowledgebase.spring.essentials.accounts.services;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-import xyz.isatimur.knowledgebase.spring.essentials.accounts.config.AppConfig;
 
 import java.math.BigDecimal;
 
@@ -18,8 +17,8 @@ import static org.hamcrest.number.BigDecimalCloseTo.closeTo;
  * Created by isati on 16.02.2017.
  * Validating that business logic perspective is tested well.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = AppConfig.class)
+@RunWith(SpringRunner.class)
+@SpringBootTest
 @Transactional
 public class AccountServiceTest {
 
